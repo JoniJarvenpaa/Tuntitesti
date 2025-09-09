@@ -4,5 +4,5 @@
 4. git commit -m "Kerrotaan mitä muutoksia on tullut tehtyä"
 5. git push                                    --> Vie pätsin remoteen, eli githubiin.
 
-when in doubt, git status
+Aina joka välissä voi kirjottaa: "git status"
 mitäköhän tänne vielä kirjottais
