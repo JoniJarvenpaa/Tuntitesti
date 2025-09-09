@@ -5,3 +5,5 @@
 5. git push       --> Vie pätsin remoteen, eli githubiin.
 
 when in doubt, git status
+
+:--DDddd
