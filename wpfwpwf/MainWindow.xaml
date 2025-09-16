@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Image HorizontalAlignment="Left" Height="100" Margin="380,161,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="299,107,0,0" VerticalAlignment="Top" Width="262" Click="Button_Click"/>
+        <Button Content="Testi" HorizontalAlignment="Left" Margin="299,107,0,0" VerticalAlignment="Top" Width="262" Click="Button_Click"/>
 
     </Grid>
 </Window>
