@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOriented_Template
 {
-    class Vastaus
+    public class Vastaus
     {
         public string teksti { get; set; } = string.Empty; // vastausteksti
         public bool onkoOikein { get; set; } // Onko kysymys oikein vai ei

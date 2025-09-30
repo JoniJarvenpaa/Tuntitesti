@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOriented_Template
 {
-    class Kysymys
+    public class Kysymys
     {
         public string teksti { get; set; } = string.Empty;
         public List<Vastaus> vastausVaihtoehdot { get; set; } = new List<Vastaus>();

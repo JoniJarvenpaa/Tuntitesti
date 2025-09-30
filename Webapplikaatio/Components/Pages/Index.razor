@@ -11,21 +11,21 @@
     <ul>
         @foreach(var kyssari in kysymysPatteri)
         {
-        <li>
-            @kyssari.teksti
-            <ul>
-                @foreach(var vastaus in kyssari.vastausVaihtoehdot)
-                {
-                    @if(vastaus.onkoOikein){
-                        <li style="background-color:lightgreen">@vastaus.teksti</li>
-                    }
-                    else
+            <li>
+                @kyssari.teksti
+                <ul>
+                    @foreach(var vastaus in kyssari.vastausVaihtoehdot)
                     {
-                        <li style="background-color:salmon">@vastaus.teksti</li>
+                        @if(vastaus.onkoOikein){
+                            <li style="background-color:lightgreen">@vastaus.teksti</li>
+                        }
+                        else
+                        {
+                            <li style="background-color:salmon">@vastaus.teksti</li>
+                        }
                     }
-                }
-            </ul>
-        </li>
+                </ul>
+            </li>
         }
     </ul>
 }
@@ -35,8 +35,12 @@
 <div style="padding:10px; border-radius:5px; border: 1px solid gray; background-color:lightgray">
 
     <div style="display:flex; flex-direction:column; gap:5px;">
-        <div><small>Kysymysteksti</small></div>
-        <div><input type="text" placeholder="Kysymysteksti" @bind="uudenKysymyksenTeksti" /></div>
+        <div>
+            <small>Kysymysteksti</small>
+        </div>
+        <div>
+            <input type="text" placeholder="Kysymysteksti" @bind="uudenKysymyksenTeksti" />
+        </div>
     </div>
 
     <hr />
@@ -44,7 +48,9 @@
     {
         <div style="display:flex; flex-direction:column; gap:5px;">
             <div><small>Montako vastausvaihtoehtoa</small></div>
-            <div><input @bind="montakoVastausta"/></div>
+            <div>
+                <input @bind="montakoVastausta"/>
+            </div>
             <button @onclick="LuoVastaukset">Luo vastausvaihtoehdot</button>
         </div>
     }
@@ -73,6 +79,7 @@
         }
     }
 
+    <button @onclick="tallenna">TESTI TALLENNUS</button>
 </div>
 <hr />
 
@@ -82,6 +89,10 @@
     string? uudenKysymyksenTeksti = null;
     int montakoVastausta = 0;
 
+    private void tallenna()
+    {
+        Models.Services.JsonService.TallennaKysymykset(kysymysPatteri);
+    }
     private void LuoVastaukset()
     {
         for(int i = 0; i < montakoVastausta; i++)
