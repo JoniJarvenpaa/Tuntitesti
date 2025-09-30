@@ -1,0 +1,105 @@
+﻿@page "/" 
+@rendermode InteractiveServer
+<PageTitle>Kysymysnaattori</PageTitle>
+
+<h1>Kysymysnaattori</h1>
+<small>Kysymysten määrä on @kysymysPatteri.Count()</small>
+<hr />
+@if(kysymysPatteri.Count > 0){
+    <h4>Kysymykset:</h4>
+    <hr />
+    <ul>
+        @foreach(var kyssari in kysymysPatteri)
+        {
+        <li>
+            @kyssari.teksti
+            <ul>
+                @foreach(var vastaus in kyssari.vastausVaihtoehdot)
+                {
+                    @if(vastaus.onkoOikein){
+                        <li style="background-color:lightgreen">@vastaus.teksti</li>
+                    }
+                    else
+                    {
+                        <li style="background-color:salmon">@vastaus.teksti</li>
+                    }
+                }
+            </ul>
+        </li>
+        }
+    </ul>
+}
+
+
+
+<div style="padding:10px; border-radius:5px; border: 1px solid gray; background-color:lightgray">
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+        <div><small>Kysymysteksti</small></div>
+        <div><input type="text" placeholder="Kysymysteksti" @bind="uudenKysymyksenTeksti" /></div>
+    </div>
+
+    <hr />
+    @if (vastausPatteri.Count() == 0)
+    {
+        <div style="display:flex; flex-direction:column; gap:5px;">
+            <div><small>Montako vastausvaihtoehtoa</small></div>
+            <div><input @bind="montakoVastausta"/></div>
+            <button @onclick="LuoVastaukset">Luo vastausvaihtoehdot</button>
+        </div>
+    }
+    else
+    {
+        foreach(var vastaus in vastausPatteri)
+        {
+            <hr />
+            <div style="display:flex; flex-direction:column; gap:5px;">
+                <div><small>Vastaus</small></div>
+                <div><input @bind="vastaus.teksti" /></div>
+            </div>
+            <div style="display:flex; flex-direction:row; gap:5px;">
+                <div><small>Onko oikein</small></div>
+                <div><input @bind="vastaus.onkoOikein" type="checkbox" /></div>
+            </div>
+        }
+        <br />
+        @if(uudenKysymyksenTeksti.Length < 4)
+        {
+            <small style="color:red">Kysymysteksti on liian lyhyt!</small>
+        }
+        else
+        {
+            <button @onclick="LuoKyssari">Luo kysymys</button>
+        }
+    }
+
+</div>
+<hr />
+
+@code {
+    private List<Kysymys> kysymysPatteri = new List<Kysymys>();
+    private List<Vastaus> vastausPatteri = new List<Vastaus>();
+    string? uudenKysymyksenTeksti = null;
+    int montakoVastausta = 0;
+
+    private void LuoVastaukset()
+    {
+        for(int i = 0; i < montakoVastausta; i++)
+        {
+            vastausPatteri.Add(new Vastaus("", ""));
+        }
+    }
+
+    private void LuoKyssari()
+    {
+        if (uudenKysymyksenTeksti != null && uudenKysymyksenTeksti.Length > 3){
+            var kysymys = new Kysymys(uudenKysymyksenTeksti);
+            foreach (var vastaus in vastausPatteri)
+                kysymys.LisaaVastausvaihtoehto(vastaus);
+            kysymysPatteri.Add(kysymys);
+        }
+        uudenKysymyksenTeksti = null;
+        vastausPatteri = new List<Vastaus>();
+        montakoVastausta = 0;
+    }
+}

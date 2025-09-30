@@ -1,0 +1,15 @@
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\bin\Debug\net7.0\TiedonTallennus.exe
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\bin\Debug\net7.0\TiedonTallennus.deps.json
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\bin\Debug\net7.0\TiedonTallennus.runtimeconfig.json
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\bin\Debug\net7.0\TiedonTallennus.dll
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\bin\Debug\net7.0\TiedonTallennus.pdb
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.AssemblyInfoInputs.cache
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.AssemblyInfo.cs
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.csproj.CoreCompileInputs.cache
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.sourcelink.json
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.dll
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\refint\TiedonTallennus.dll
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.pdb
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\TiedonTallennus.genruntimeconfig.cache
+C:\Users\joni220\Documents\Ohjelmistokehitys\Jonin gitit\Tuntitesti\TiedonTallennus\obj\Debug\net7.0\ref\TiedonTallennus.dll
