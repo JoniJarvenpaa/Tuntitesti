@@ -32,7 +32,27 @@ namespace ObjectOriented_Template.Models.Services
             }
             return true;
         }
-
+        public static List<Kysymys> HaeKysymykset()
+        {
+            string docPath = Environment.CurrentDirectory;
+            string savePath = Path.Combine(docPath, tallennusKansio);
+            if (CreateDirectoryIfNotExist(savePath))
+            {
+                string fullpath = Path.Combine(savePath, kysymysTiedostoNimi);
+                try
+                {
+                    string content = File.ReadAllText(fullpath);
+                    var kysymykset = JsonSerializer.Deserialize<List<Kysymys>>(content);
+                    if (kysymykset != null)
+                        return kysymykset;
+                }
+                catch
+                {
+                    return new List<Kysymys>();
+                }
+            }
+            return new List<Kysymys>();
+        }
         private static bool CreateDirectoryIfNotExist(string path)
         {
             try

@@ -15,6 +15,7 @@ namespace ObjectOriented_Template
         {
             this.teksti = kysymysTeksti;
         }
+        public Kysymys() { }
 
         public void LisaaVastausvaihtoehto(Vastaus vastaus)
         {

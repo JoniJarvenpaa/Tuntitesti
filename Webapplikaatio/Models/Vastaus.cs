@@ -19,5 +19,6 @@ namespace ObjectOriented_Template
                 this.onkoOikein = true;
             }
         }
+        public Vastaus() { }
     }
 }

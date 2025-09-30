@@ -12,7 +12,7 @@
         @foreach(var kyssari in kysymysPatteri)
         {
             <li>
-                @kyssari.teksti
+                @kyssari.teksti <button @onclick="() => PoistaKyssari(kyssari)">Poista kysymys</button>
                 <ul>
                     @foreach(var vastaus in kyssari.vastausVaihtoehdot)
                     {
@@ -79,7 +79,6 @@
         }
     }
 
-    <button @onclick="tallenna">TESTI TALLENNUS</button>
 </div>
 <hr />
 
@@ -89,7 +88,11 @@
     string? uudenKysymyksenTeksti = null;
     int montakoVastausta = 0;
 
-    private void tallenna()
+    private void Hae()
+    {
+        kysymysPatteri = Models.Services.JsonService.HaeKysymykset();
+    }
+    private void Tallenna()
     {
         Models.Services.JsonService.TallennaKysymykset(kysymysPatteri);
     }
@@ -100,7 +103,6 @@
             vastausPatteri.Add(new Vastaus("", ""));
         }
     }
-
     private void LuoKyssari()
     {
         if (uudenKysymyksenTeksti != null && uudenKysymyksenTeksti.Length > 3){
@@ -112,5 +114,16 @@
         uudenKysymyksenTeksti = null;
         vastausPatteri = new List<Vastaus>();
         montakoVastausta = 0;
+        Tallenna();
     }
-}
+    private void PoistaKyssari(Kysymys poistettava)
+    {
+        kysymysPatteri.Remove(poistettava);
+        Tallenna();
+    }
+
+    protected override async Task OnInitializedAsync() // a function that is executed immediately as the page is loaded
+    {
+        Hae();
+    }
+    }
