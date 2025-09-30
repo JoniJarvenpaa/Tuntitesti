@@ -1,0 +1,43 @@
+﻿@page "/Stopwatch"
+@rendermode InteractiveServer
+<div style="border:1px solid black; padding:5px;">
+<button @onclick="Start">Aloita</button>
+<span>Alkuheti: @dateTime.ToString("HH:mm")</span>
+<span style="margin-left:20px;">Kesto: @hours</span>
+</div>
+@code {
+    DateTime dateTime;
+    double hours = 0;
+    private double hoursFromStart()
+    {
+        if (dateTime.Ticks == 0)
+            return 0;
+        var tunnit = (DateTime.Now - dateTime).TotalHours;
+        return tunnit;
+    }
+
+    private void Start()
+    {
+        dateTime = DateTime.Now;
+    }
+
+    private System.Timers.Timer? timer;
+    protected override void OnInitialized()
+    {
+        // Create a timer that ticks every 5 seconds
+        timer = new System.Timers.Timer(5000);
+        timer.Elapsed += async (sender, e) =>
+        {
+            hours = hoursFromStart();
+
+            // Refresh the UI - must be invoked on the Blazor sync context
+            await InvokeAsync(StateHasChanged);
+        };
+        timer.AutoReset = true;
+        timer.Enabled = true;
+    }
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}
